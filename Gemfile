@@ -11,3 +11,5 @@ gem "shotgun", "~> 0.9.2"
 gem "require_all", "~> 3.0"
 
 gem "sqlite3", "~> 1.4"
+
+gem 'bcrypt', '~> 3.1.7'

@@ -1,0 +1,11 @@
+<h3>Please Login</h3>
+<div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>Error!</strong> Either username or password is incorrect please try again.
+</div>
+
+<form action="/login" method="POST">
+    <input type="text" name="username" placeholder="Username:">
+    <input type="text" name="password" placeholder="Password:">
+    <input type="submit" value="Log In">
+</form>
