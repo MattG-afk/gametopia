@@ -10,37 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_19_010202) do
+ActiveRecord::Schema.define(version: 2020_06_20_222324) do
 
-  create_table "collection", force: :cascade do |t|
-    t.float "length"
-    t.integer "genre_id"
-    t.integer "console_id"
+  create_table "collections", force: :cascade do |t|
+    t.string "game"
+    t.string "console"
+    t.string "genre"
     t.integer "user_id"
-  end
-
-  create_table "console", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-  end
-
-  create_table "games", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-  end
-
-  create_table "genre", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-  end
-
-  create_table "user_games", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "game_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
+    t.string "email"
     t.string "password_digest"
   end
 

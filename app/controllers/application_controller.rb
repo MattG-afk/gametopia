@@ -1,3 +1,4 @@
+require "pry"
 require "./config/env"
 class ApplicationController < Sinatra::Base
     set :views, ->{File.join(root, '../views')}
@@ -41,6 +42,7 @@ class ApplicationController < Sinatra::Base
     end
 
     get "/dashboard" do
+        binding.pry
         if logged_in?
         erb :dashboard
         else
