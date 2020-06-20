@@ -2,7 +2,55 @@
 
 <h1>Welcome back <%=current_user.username%></h1>
 
-<p></p>
+<h1>Please enter a new game or scroll down to see your collection</h1>
+
+<form>
+       <fieldset>
+         <legend>Genre</legend>
+         <p>
+           <label>What Genre is this type of game?</label>
+             <input type = "checkbox"
+                 id = "chkHorror"
+                 value = "horror" />
+             <label for = "chkHorror">Horror Games</label>
+             <input type = "checkbox"
+                 id = "chkRPG"
+                 value = "rpg" />
+             <label for = "chkRPG">RPG</label>
+             <input type = "checkbox"
+                 id = "chkShooter"
+                 value = "shooter" />
+             <label for = "chkShooter">Shooter</label>
+             <input type = "checkbox"
+                 id = "chkSideScroller"
+                 value = "sidescroller" />
+             <label for = "chkSideScroller">SideScroller</label>
+         </p>
+       </fieldset>
+
+       <fieldset>
+         <legend>Console</legend>
+         <p>
+           <label>What Console can this game be played on?</label>
+             <input type = "checkbox"
+                 id = "chkPlaystation"
+                 value = "playstation" />
+             <label for = "chkPlaystation">Playstation</label>
+             <input type = "checkbox"
+                 id = "chkXbox"
+                 value = "xbox" />
+             <label for = "chkXbox">Xbox</label>
+             <input type = "checkbox"
+                 id = "chkNintendo"
+                 value = "nintendo" />
+             <label for = "chkNintendo">Nintendo</label>
+             <input type = "checkbox"
+                 id = "chkPC"
+                 value = "pc" />
+             <label for = "chkPC">PC</label>
+         </p>
+       </fieldset>
+</form>
 
 
 
