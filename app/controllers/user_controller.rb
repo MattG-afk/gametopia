@@ -5,9 +5,18 @@ class UserController < ApplicationController
         erb :signup
     end
 
+    post "/signup" do
+        @user = User.new(params)
+        if @user.save
+         session[:user_id] = @user.id
+             redirect "/login"
+        else 
+            redirect "/failure"
+        end
+     end
 
     get "/login" do
-        erb :login
+        erb:login
     end
 
     post "/login" do
@@ -16,7 +25,7 @@ class UserController < ApplicationController
         #binding.pry
         if @user && @user.authenticate(params[:password])
             session[:id] = @user.id 
-            redirect "/users/#{@user.id}"
+            redirect "/collection/new"
         else
             redirect "/failure"
         end
@@ -31,7 +40,7 @@ class UserController < ApplicationController
         if params[:name] != "" && params[:email] != "" && params[:password] != ""
             @user = User.create(params)
             session[:id] = @user.id 
-            redirect "/users/#{@user.id}"
+            redirect "/user/#{@user.id}"
         else
             redirect "/failure"
         end
