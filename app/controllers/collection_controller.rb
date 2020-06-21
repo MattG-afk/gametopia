@@ -12,7 +12,7 @@ class CollectionsController < ApplicationController
          if params[:game_name] != "" && params[:genre] != "" && params[:console] != ""
             @collection = Collection.create(params)
             session[:id] = @user.id 
-            redirect '/collection/#{'
+            redirect "/collection/#{@collection.id}"
          else
              redirect '/collection/new'
          end
