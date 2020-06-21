@@ -44,6 +44,21 @@ class UserController < ApplicationController
         erb :failure 
     end
 
+    post "/users" do
+        if params[:name] != "" && params[:email] != "" && params[:password] != ""
+            @user = User.create(params)
+            redirect "/user/#{@user.id}"
+        else
+
+            
+        end
+        
+    end
+
+    get '/users/:id' do
+        erb :'/users/:dashboard'
+    end
+
     get "/logout" do
         session.clear
         redirect "/"

@@ -15,3 +15,6 @@ gem "sqlite3", "~> 1.4"
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'rake'
+
+gem 'tux', '~> 0.3.0'
+
