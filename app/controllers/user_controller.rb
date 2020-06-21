@@ -5,6 +5,7 @@ class UserController < ApplicationController
         erb :signup
     end
 
+
     get "/login" do
         erb:login
     end
