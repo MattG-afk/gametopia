@@ -18,9 +18,10 @@ class ApplicationController < Sinatra::Base
     end
 
     post "/signup" do
-       user = User.new(:username => params[:username], :password => params[:password])
-
-       if user.save
+       @user = User.new(params)
+       binding.pry
+       if @user.save
+        session[:user_id] = @user.id
             redirect "/login"
        else 
            redirect "/failure"
@@ -32,9 +33,11 @@ class ApplicationController < Sinatra::Base
     end
 
     post "/login" do
-        user = User.find_by(:username => params[:username])
-        if user && user.authenticate(params[:password])
-            session[:user_id] = user.id 
+        #binding.pry
+        @user = User.find_by(username: params[:username])
+        #binding.pry
+        if @user && @user.authenticate(params[:password])
+            session[:id] = @user.id 
             redirect "/dashboard"
         else
             redirect "/failure"
@@ -42,16 +45,15 @@ class ApplicationController < Sinatra::Base
     end
 
     get "/dashboard" do
-        binding.pry
         if logged_in?
-        erb :dashboard
+        erb :"dashboard"
         else
         redirect "/login"
         end
     end
 
     get "/failure" do
-        erb :failure
+        erb :failure 
     end
 
     get "/logout" do
