@@ -10,5 +10,5 @@ collections = [
         {name: "SWTOR", console: "PC",  genre: "RPG", user_id: "2"}
     ]
     collections.each do |entry|
-       Collection.create(entry)
+       Collections.create(entry)
 end 

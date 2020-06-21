@@ -1,5 +1,11 @@
 
+<h1>Name of Game:</h1>
+<h3><%= @collection.name%></h3>
 
+<h1>Genre:</h1>
+<h3><%= @collection.genre%></h3>
 
+<h1>Console:</h1>
+<h3><%= @collection.console%></h3>
 
-<p><a href="/logout">Log Out</a></p>
+<a href="/collections/<%=@collection.id%>/edit">Edit</a>
