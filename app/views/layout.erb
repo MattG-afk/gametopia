@@ -37,6 +37,16 @@ body {
 </head>
 <body>
     <h1>Welcome To Gametopia</h1>
+    <div class="topnav">
+    <a class="active" href="/dashboard">Home</a>
+    <a href="/games">Games</a>
+    <a href="/collection">Collection</a>
+    <a href="/logout">Logout</a>
+    </div>
     <%= yield %>
+
+    <footer class="branding">
+        <small>&copy; 2020 <strong>GametopiaApp</strong></small>
+    </footer>
 </body>
 </html>
