@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
 
-    get '/games' do
+    get '/games/new' do
         erb :'/games/new'
     end
 
