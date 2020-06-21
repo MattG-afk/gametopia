@@ -5,17 +5,6 @@ class UserController < ApplicationController
         erb :signup
     end
 
-    post "/signup" do
-       @user = User.new(params)
-       #binding.pry
-       if @user.save
-        session[:user_id] = @user.id
-            redirect "/login"
-       else 
-           redirect "/failure"
-       end
-    end
-
     get "/login" do
         erb:login
     end
@@ -26,19 +15,12 @@ class UserController < ApplicationController
         #binding.pry
         if @user && @user.authenticate(params[:password])
             session[:id] = @user.id 
-            redirect "/dashboard"
+            redirect "/users/#{@user.id}"
         else
             redirect "/failure"
         end
     end
 
-    get "/dashboard" do
-        if logged_in?
-        erb :"dashboard"
-        else
-        redirect "/login"
-        end
-    end
 
     get "/failure" do
         erb :failure 
@@ -47,16 +29,17 @@ class UserController < ApplicationController
     post "/users" do
         if params[:name] != "" && params[:email] != "" && params[:password] != ""
             @user = User.create(params)
+            session[:id] = @user.id 
             redirect "/user/#{@user.id}"
         else
-
-            
+            redirect "/failure"
         end
         
     end
 
     get '/users/:id' do
-        erb :'/users/:dashboard'
+        @user = User.find_by(id: params[:id])
+        erb :'/users/dashboard'
     end
 
     get "/logout" do

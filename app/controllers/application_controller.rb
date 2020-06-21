@@ -1,9 +1,10 @@
 require "./config/env"
 
 class ApplicationController < Sinatra::Base
-    set :views, ->{File.join(root, '../views')}
 
     configure do
+        set :public_folder, 'public'
+        set :views, 'app/views'
         enable :sessions
         set :session_secret, "sphinx"
     end
