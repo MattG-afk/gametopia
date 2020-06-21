@@ -1,5 +1,10 @@
+<div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <a href="#games">Games</a>
+  <a href="#Collection">Collection</a>
+</div>
 
-<h1>Welcome back <%=current_user.username%></h1>
+<h1>Welcome back <%=current_user.username.capitalize%></h1>
 
 <h1>Please enter a new game or scroll down to see your collection</h1>
 
@@ -24,6 +29,7 @@
                  id = "chkSideScroller"
                  value = "sidescroller" />
              <label for = "chkSideScroller">SideScroller</label>
+             <input type="submit" value="Submit">
          </p>
        </fieldset>
 
@@ -47,6 +53,7 @@
                  id = "chkPC"
                  value = "pc" />
              <label for = "chkPC">PC</label>
+             <input type="submit" value="Submit">
          </p>
        </fieldset>
 </form>
