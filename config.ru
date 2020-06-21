@@ -1,6 +1,6 @@
 require_relative './config/env'
 
 
-use GamesController
+use CollectionsController
 use UserController
 run ApplicationController

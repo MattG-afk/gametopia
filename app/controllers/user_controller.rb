@@ -7,7 +7,7 @@ class UserController < ApplicationController
 
 
     get "/login" do
-        erb:login
+        erb :login
     end
 
     post "/login" do
@@ -31,7 +31,7 @@ class UserController < ApplicationController
         if params[:name] != "" && params[:email] != "" && params[:password] != ""
             @user = User.create(params)
             session[:id] = @user.id 
-            redirect "/user/#{@user.id}"
+            redirect "/users/#{@user.id}"
         else
             redirect "/failure"
         end
