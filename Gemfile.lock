@@ -75,7 +75,7 @@ DEPENDENCIES
   sinatra (~> 2.0, >= 2.0.8.1)
   sinatra-activerecord (~> 2.0)
   sqlite3 (~> 1.4)
-  tux
+  tux (~> 0.3.0)
 
 BUNDLED WITH
    2.1.2
