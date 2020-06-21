@@ -25,7 +25,7 @@ class UserController < ApplicationController
         #binding.pry
         if @user && @user.authenticate(params[:password])
             session[:id] = @user.id 
-            redirect "/collection/new"
+            redirect "/collections/new"
         else
             redirect "/failure"
         end

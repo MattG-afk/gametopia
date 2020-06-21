@@ -1,21 +1,22 @@
 class CollectionsController < ApplicationController
 
-    get '/collection/new' do
-        erb :'/collection/new'
+    get '/collections/new' do
+        erb :'/collections/new'
     end
 
-    post '/collection' do
+    post '/collections/new' do
          if !logged_in?
              redirect '/'
          end
 
          if params[:game_name] != "" && params[:genre] != "" && params[:console] != ""
             @collection = Collection.create(params)
-            session[:id] = @user.id 
-            redirect "/collection/#{@collection.id}"
+            redirect "/collections/#{@collection.id}"
          else
-             redirect '/collection/new'
+             redirect '/collections/new'
          end
     end
+
+    
 
 end
