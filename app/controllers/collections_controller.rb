@@ -56,6 +56,15 @@ class CollectionsController < ApplicationController
         end
     end
 
+    delete'/collections/:id' do
+        set_collection
+        if authorized_to_edit?(@collection)
+            @collection.destroy
+            redirect '/collections'
+        else
+            redirect '/collections'
+        end
+    end
 
     private
 

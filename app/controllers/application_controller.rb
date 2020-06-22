@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
         end
 
         def authorized_to_edit?(collection)
-            collection.user == @current_user
+            @collection.user == @current_user
         end
 
     end

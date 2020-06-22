@@ -7,8 +7,12 @@
 
 <h1>Console:</h1>
 <h3><%= @collection.console%></h3>
- <% if authorized_to_edit?(@collection)%>
 
+ <% if authorized_to_edit?(@collection)%>
   <a href="/collections/<%=@collection.id%>/edit">Edit a Post</a>
-  <a href="collections/<%=@collection.id%>/delete"> Delete a Post</a>
+  <br><br>
+  <form class="" action="/collections/<%=@collection.id%>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" name="" value="Delete">
+  </form>
 <% end %>
