@@ -1,5 +1,11 @@
 class CollectionsController < ApplicationController
 
+
+    get '/collections' do
+        @collection = Collection.all
+        erb :'collections/index'
+    end
+
     get '/collections/new' do
         erb :'/collections/new'
     end
@@ -25,7 +31,7 @@ class CollectionsController < ApplicationController
     get '/collections/:id/edit' do
         set_collection
         if logged_in?
-            if set_collection.user == current_user
+            if set_collection.user == @current_user
                 erb :'/collections/edit'
             else
                 redirect "users/#{current_user.id}"
@@ -39,7 +45,7 @@ class CollectionsController < ApplicationController
     patch '/collections/:id' do
         set_collection
         if logged_in?
-                if @collection.user == current_user
+                if @collection.user == @current_user
                     @collection.update(name: params[:name], genre: params[:genre], console: params[:console])
                     redirect "/collections/#{@collection.id}"
                 else

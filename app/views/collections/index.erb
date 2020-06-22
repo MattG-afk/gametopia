@@ -1,0 +1,6 @@
+<% @collection.each do |collections|%>
+<h4><a href="/collections/<%= collections.id %>"><%= collections.name%></a></h4>
+    <p><%= collections.genre%></p>
+    <p><%= collections.console%><p>
+    <br><br>
+<% end %>

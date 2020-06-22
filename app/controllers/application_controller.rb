@@ -21,6 +21,11 @@ class ApplicationController < Sinatra::Base
         def current_user
            @current_user = User.find_by(session[:user_id])
         end
+
+        def authorized_to_edit?(collection)
+            collection.user == @current_user
+        end
+
     end
 
 
