@@ -42,6 +42,27 @@ class CollectionsController < ApplicationController
 
     end
 
+    get '/collections/search/:name' do
+        #binding.pry
+        #def search_name
+        if @collection = Collection.all.where("name like ?","%#{params[:name]}%")
+            #binding.pry
+            redirect "/collections/#{@collection.ids[0]}"   
+        else
+            redirect "/collections/error"
+        end
+        #end
+        #@collection = Collection.all("name like ?", "%#{@collection}%")
+        #if @collection.include?(Collection)
+          
+        #    redirect "/collections/#{@collection.id}"   
+        #else
+         #   redirect "/"
+      #  end
+
+    end
+         
+
     patch '/collections/:id' do
         set_collection
         if logged_in?
@@ -71,4 +92,5 @@ class CollectionsController < ApplicationController
     def set_collection
         @collection = Collection.find(params[:id])
     end
+
 end

@@ -39,6 +39,7 @@ class UserController < ApplicationController
     post "/users" do
         if params[:name] != "" && params[:email] != "" && params[:password] != ""
             @user = User.create(params)
+            @user.save
             session[:id] = @user.id 
             redirect "/user/#{@user.id}"
         else
